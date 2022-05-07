@@ -1,3 +1,9 @@
 [submodule "Web4Radio"]
 	path = Web4Radio
 	url = git@github.com:seanthegeek/Web4Radio.git
+[submodule "apollo-website"]
+	path = apollo-website
+	url = git@github.com:NathanaelMathieu/apollo.git
+[submodule "lying-party"]
+	path = lying-party
+	url = git@github.com:NathanaelMathieu/lying-party.git
