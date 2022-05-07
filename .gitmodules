@@ -7,3 +7,6 @@
 [submodule "lying-party"]
 	path = lying-party
 	url = git@github.com:NathanaelMathieu/lying-party.git
+[submodule "160-years-of-nate"]
+	path = 160-years-of-nate
+	url = git@github.com:NathanaelMathieu/160-years-of-nate.git
