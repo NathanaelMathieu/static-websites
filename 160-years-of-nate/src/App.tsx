@@ -1,34 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
+import { ImageList, ImageListItem, IconButton, ImageListItemBar} from '@mui/material';
+
+function importAll(r: __WebpackModuleApi.RequireContext): string[] {
+  return r.keys().map(r) as string[];
+}
+
+const images: string[] = importAll(require.context('./images', false, /\.(png|jpe?g|svg|heic|JPE?G)$/));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <ul className="mdc-image-list my-image-list">
-        <li className="mdc-image-list__item">
-          <div className="mdc-image-list__image-aspect-container">
-            <img alt="baby" className="mdc-image-list__image" src="src/images/00a.jpg"/>
-          </div>
-          <div className="mdc-image-list__supporting">
-            <span className="mdc-image-list__label">Text label</span>
-          </div>
-        </li>
-      </ul>
+     <ImageList variant="woven" cols={3} gap={10}>
+      {images.map((image) => (
+        <ImageListItem key={image}>
+          <img
+            src={`${image}?fit=crop&auto=format`}
+            srcSet={`${image}?fit=crop&auto=format&dpr=2 2x`}
+            alt="image"
+            loading="lazy"
+          />
+          <ImageListItemBar
+            // position="below"
+            title={image.replace(/([a-z]?\..*\..*)|(\/.*\/)/gm,"").replace(/-0|-/gm," ")}
+          />
+        </ImageListItem>
+      ))}
+     </ImageList>
     </div>
   );
 }
