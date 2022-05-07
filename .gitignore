@@ -1,0 +1,2 @@
+# Ignore vscode folder. Anything useful should get put in the README
+.vscode/
